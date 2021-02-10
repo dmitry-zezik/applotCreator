@@ -58,3 +58,9 @@ win32 {
 macx {
     ICON = macx/app_icon.icns
 }
+
+DISTFILES += \
+    qml/Components/NavigationSwipeView.qml \
+    qml/Components/NavigationTabBar.qml \
+    qml/MainApp.qml
+    qml/Components/MainApp.qml
