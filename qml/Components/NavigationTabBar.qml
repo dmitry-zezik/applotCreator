@@ -57,7 +57,6 @@ Rectangle {
             height: d.sqButtonHeight
             text: name
             state: navigationListView.currentIndex === index ? "selected" : "standard"
-            onStateChanged: console.log("STATE:", state, index)
             onClicked: {
                 navigationListView.currentIndex = index
             }

@@ -60,7 +60,7 @@ macx {
 }
 
 DISTFILES += \
-    qml/Components/NavigationSwipeView.qml \
     qml/Components/NavigationTabBar.qml \
+    qml/Components/NavigationView.qml \
     qml/MainApp.qml
     qml/Components/MainApp.qml

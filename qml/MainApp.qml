@@ -7,8 +7,8 @@ Item {
 
     anchors.fill: parent
 
-    NavigationSwipeView {
-        id: navigationSwipeView
+    NavigationView {
+        id: navigationView
 
         anchors {
             top: parent.top
