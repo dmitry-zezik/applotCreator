@@ -17,6 +17,8 @@ App {
 
     signal signalAppBackKey()
 
+    property alias appStyle: appStyle
+
     Item { // appContent
         id: contentItem
         anchors.fill: parent
@@ -40,6 +42,10 @@ App {
         id: dataItem
         anchors.fill: parent
 
+        AppStyle {
+            id: appStyle
+        }
+
 //        DataModule {
 //            id: dataModule
 //        }
@@ -48,5 +54,4 @@ App {
 //            id: appStorage
 //        }
     }
-
 }

@@ -7,7 +7,7 @@ Rectangle {
     id: navigationTabBar
     width: dp(60)
     height: parent.height
-    color: "gray"
+    color: appStyle.gray
 
     property alias currentIndex: navigationListView.currentIndex
 

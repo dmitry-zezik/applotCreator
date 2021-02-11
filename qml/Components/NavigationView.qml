@@ -2,13 +2,16 @@ import QtQuick 2.12
 import QtQuick.Controls 2.12
 import Felgo 3.0
 
-Item {
+import "../Pages"
+
+Rectangle {
     id: navView
+    color: appStyle.mainBackground
 
     property int currentIndex: 0
 
-    Rectangle {
-        color: "green"
+    UIXPage {
+        id: uixPage
         anchors.fill: parent
         visible: currentIndex === 0
     }

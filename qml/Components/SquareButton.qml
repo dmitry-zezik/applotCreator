@@ -13,9 +13,9 @@ Button {
         id: d
 
         readonly property color stdButtonColor: "transparent"
-        readonly property color selectedButtonColor: "black"
-        readonly property color hoveredButtonColor: "light gray"
-        readonly property color verticalLineColor: "light gray"
+        readonly property color selectedButtonColor: appStyle.darkGray
+        readonly property color hoveredButtonColor: appStyle.lighterDarkGray
+        readonly property color verticalLineColor: appStyle.lightGray
     }
 
     state: "standard"

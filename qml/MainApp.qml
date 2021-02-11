@@ -4,7 +4,6 @@ import "./Components"
 
 Item {
     id: mainApp
-
     anchors.fill: parent
 
     NavigationView {
