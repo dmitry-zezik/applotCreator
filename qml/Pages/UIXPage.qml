@@ -4,6 +4,12 @@ import Felgo 3.0
 
 Item {
 
+    QtObject {
+        id: d
+
+        readonly property real minWidth: splitView.width * 0.3
+    }
+
     Rectangle { // background for navigationView handle
         width: parent.width
         height: dp(42)
@@ -14,12 +20,6 @@ Item {
         id: splitView
         anchors.fill: parent
         orientation: Qt.Horizontal
-
-        QtObject {
-            id: d
-
-            readonly property real minWidth: splitView.width * 0.2
-        }
 
         handle: Rectangle {
             implicitWidth: dp(2)

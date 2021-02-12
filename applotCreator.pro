@@ -60,7 +60,10 @@ macx {
 }
 
 DISTFILES += \
+    qml/AppData.qml \
+    qml/AppFunctions.qml \
     qml/AppStyle.qml \
+    qml/Components/CustomComboBox.qml \
     qml/Components/NavigationTabBar.qml \
     qml/Components/NavigationView.qml \
     qml/MainApp.qml \

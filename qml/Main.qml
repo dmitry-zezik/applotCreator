@@ -1,5 +1,6 @@
 import Felgo 3.0
 import QtQuick 2.12
+import QtQuick.Window 2.12
 
 // You get free licenseKeys from https://felgo.com/licenseKey
 // With a licenseKey you can:
@@ -15,9 +16,22 @@ App {
     screenWidth: 1200
     title: "Applot Creator"
 
+    readonly property real rootAvailableHeight: Screen.desktopAvailableHeight
+    readonly property real rootAvailableWidth: Screen.desktopAvailableWidth
+    readonly property real pxToMmHeight: Screen.desktopAvailableHeight / Screen.pixelDensity // screen height in mm
+    readonly property real pxToMmWidth: Screen.desktopAvailableWidth / Screen.pixelDensity // screen width in mm
+
+    readonly property int iphone11ProMaxHeight: 158 // mm
+    readonly property int iphone11ProMaxWidth: 78 // mm
+
+    minimumHeight: (Screen.desktopAvailableHeight * (iphone11ProMaxHeight / pxToMmHeight)) + dp(64)
+    minimumWidth: ((Screen.desktopAvailableWidth * (iphone11ProMaxWidth / pxToMmWidth)) * 3) + dp(64)
+
     signal signalAppBackKey()
 
     property alias appStyle: appStyle
+    property alias appData: appData
+    property alias appFunctions: appFunctions
 
     Item { // appContent
         id: contentItem
@@ -44,6 +58,14 @@ App {
 
         AppStyle {
             id: appStyle
+        }
+
+        AppData {
+            id: appData
+        }
+
+        AppFunctions {
+            id: appFunctions
         }
 
 //        DataModule {
