@@ -27,6 +27,8 @@ App {
     minimumHeight: (Screen.desktopAvailableHeight * (iphone11ProMaxHeight / pxToMmHeight)) + dp(64)
     minimumWidth: ((Screen.desktopAvailableWidth * (iphone11ProMaxWidth / pxToMmWidth)) * 3) + dp(64)
 
+    //
+
     signal signalAppBackKey()
 
     property alias appStyle: appStyle

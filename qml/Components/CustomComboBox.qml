@@ -58,7 +58,7 @@ ComboBox {
         border.color: appStyle.mainTitleText
         border.width: dp(1)
         color: appStyle.mainTitleBackground
-        radius: height
+        radius: dp(5)
     }
 
     popup: Popup {

@@ -4,9 +4,12 @@ import QtQuick.Controls 2.13
 import Felgo 3.0
 
 import "../Components"
+import 'http://localhost:8080/ApplotPages' 1.0 as ApplotPages
 
 C2.Page {
     id: devicePage
+
+    property alias viewerPage: viewerPage
 
     QtObject {
         id: d
@@ -54,10 +57,10 @@ C2.Page {
                 }
             }
 
-//            Item {
-//                width: dp(28)
-//                height: dp(28)
-//                anchors.verticalCenter: parent.verticalCenter
+            Item {
+                width: dp(28)
+                height: dp(28)
+                anchors.verticalCenter: parent.verticalCenter
 //                Icon {
 //                    id: icon_enable_safeZone
 //                    anchors.centerIn: parent
@@ -76,7 +79,7 @@ C2.Page {
 //                        }
 //                    }
 //                }
-//            }
+            }
         }
 
     }
@@ -90,7 +93,7 @@ C2.Page {
             color: appStyle.appSettingsRec
             opacity: 1
             icon: IconType.mobilephone
-            size: dp(256)
+            size: dp(128)
         }
 
         Rectangle {
@@ -100,9 +103,11 @@ C2.Page {
             height: d.deviceScreenHeight
             color: 'white'
             visible: deviceImage.status === Image.Ready
+            clip: true
 
-            Item {
-                id: deviceScreenContent
+            ApplotPages.ViewerPage {
+                id: viewerPage
+                anchors.fill: parent
             }
 
             Item {

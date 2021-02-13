@@ -4,6 +4,12 @@ import Felgo 3.0
 
 Item {
 
+    property alias devicePage: devicePage
+    property alias projectPage: projectPage
+
+    property var projectPagesModel: devicePage.viewerPage.appPages
+    property var projectContentModel: devicePage.viewerPage.appContent
+
     QtObject {
         id: d
 
@@ -28,12 +34,14 @@ Item {
         }
 
         ProjectComponentsPage {
+            id: projectPage
             SplitView.minimumWidth: d.minWidth
             SplitView.fillWidth: true
             SplitView.fillHeight: true
         }
 
         DevicePage {
+            id: devicePage
             SplitView.minimumWidth: d.minWidth
             SplitView.preferredWidth: splitView.width * 0.3
             SplitView.fillHeight: true

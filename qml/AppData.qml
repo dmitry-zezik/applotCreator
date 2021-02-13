@@ -6,6 +6,7 @@ Item {
 
     property alias devicesModel: devicesModel
     property alias device: device
+    property alias projectDepth: projectDepth
 
     ListModel {
         id: devicesModel
@@ -20,6 +21,14 @@ Item {
 
         property int currentIndex: -1
         property bool safeZone: false
+    }
+
+    ListModel {
+        id: projectDepth
+
+        ListElement {
+            parent_id: ""
+        }
     }
 
 }

@@ -4,6 +4,7 @@ import Felgo 3.0
 Item {
 
     property alias device: device
+    property alias projectDepth: projectDepth
 
     QtObject {
         id: device
@@ -49,4 +50,7 @@ Item {
         }
     }
 
+    QtObject {
+        id: projectDepth
+    }
 }
