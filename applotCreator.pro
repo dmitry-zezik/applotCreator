@@ -64,8 +64,10 @@ DISTFILES += \
     qml/AppFunctions.qml \
     qml/AppStyle.qml \
     qml/Components/CustomComboBox.qml \
+    qml/Components/ListDelegate.qml \
     qml/Components/NavigationTabBar.qml \
     qml/Components/NavigationView.qml \
+    qml/Components/ProjectBrowserItem.qml \
     qml/MainApp.qml \
     qml/Pages/DevicePage.qml \
     qml/Pages/ProjectComponentsPage.qml \

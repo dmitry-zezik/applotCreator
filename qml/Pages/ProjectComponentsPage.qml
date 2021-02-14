@@ -4,6 +4,8 @@ import QtQuick.Controls 2.13
 import QtQuick.Layouts 1.12
 import Felgo 3.0
 
+import "../Components"
+
 C2.Page {
     id: projectPage
 
@@ -23,6 +25,19 @@ C2.Page {
         width: parent.width
         height: dp(42)
         color: appStyle.mainTitleBackground
+
+        Text {
+            anchors {
+                left: parent.left
+                verticalCenter: parent.verticalCenter
+                leftMargin: d.bigSpacing
+            }
+
+            text: "/path_to_your/file"
+            font.pointSize: 10
+            font.bold: true
+            color: appStyle.mainTitleText
+        }
     }
 
     ListView {
@@ -37,13 +52,13 @@ C2.Page {
 
     Component.onCompleted: {
         let h_screen = {
-            screen_id: 'h_screen',
+            item_id: 'start_screen',
             screen_title: 'Start',
             screen_icon: IconType.flag,
             content_flickable: false
         }
         let test_screen = {
-            screen_id: 'test_screen',
+            item_id: 'test_screen',
             screen_title: 'Test',
             screen_icon: IconType.gear,
             content_flickable: false
@@ -76,7 +91,7 @@ C2.Page {
             }
 
             ListView {
-
+                id: projectViewBrowserColumn
                 anchors{
                     fill: parent
                     leftMargin: d.bigSpacing
@@ -96,45 +111,13 @@ C2.Page {
             Component {
                 id: projectParentDelegate
 
-                Rectangle {
+                ProjectBrowserItem {
                     width: parent.width
                     height: dp(32)
-                    radius: dp(5)
-                    color: index === 0 ? appStyle.lightMediumGray : "transparent"
+                    state: projectViewBrowserColumn.currentIndex === index ? "selected" : "standard"
 
-                    RowLayout {
-                        anchors{
-                            fill: parent
-                            leftMargin: d.standardSpacing
-                            rightMargin: d.standardSpacing
-                        }
-                        spacing: d.standardSpacing
-
-                        Icon {
-                            Layout.alignment: Qt.AlignVCenter
-                            icon: screen_icon
-
-                            color: appStyle.blue
-                            opacity: 1
-                        }
-
-                        Text {
-                            Layout.alignment: Qt.AlignVCenter
-                            Layout.fillWidth: true
-
-                            horizontalAlignment: Text.AlignLeft
-                            text: screen_id
-                            font.pointSize: 10
-                            color: appStyle.darkGray
-                        }
-
-                        Icon {
-                            Layout.alignment: Qt.AlignVCenter
-                            icon: IconType.angleright
-
-                            color: appStyle.darkGray
-                            opacity: 1
-                        }
+                    onClicked: {
+                        projectViewBrowserColumn.currentIndex = index
                     }
                 }
             }
