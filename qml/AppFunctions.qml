@@ -52,5 +52,16 @@ Item {
 
     QtObject {
         id: projectDepth
+
+        function setNewDepth(currentItem, rowIndex) {
+            let currentItemId = currentItem['item_id']
+            let removeItemsCount = appData.projectDepth.count - rowIndex
+
+            if (appData.projectDepth.count > rowIndex) {
+                appData.projectDepth.remove(rowIndex, removeItemsCount)
+            }
+
+            appData.projectDepth.append({"parent_id": currentItemId})
+        }
     }
 }

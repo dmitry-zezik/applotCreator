@@ -41,6 +41,7 @@ C2.Page {
     }
 
     ListView {
+        id: projectViewBrowserRow
         anchors.fill: parent
         model: appData.projectDepth
         orientation: Qt.Horizontal
@@ -67,6 +68,40 @@ C2.Page {
         projectPagesModel.append(h_screen)
         projectPagesModel.append(test_screen)
 
+        ///////
+
+        let item1 = {
+            parent_id: 'start_screen',
+            item_id: 'item 1'
+        }
+
+        let item2 = {
+            parent_id: 'start_screen',
+            item_id: 'item 2'
+        }
+
+        let item3 = {
+            parent_id: 'start_screen',
+            item_id: 'item 3'
+        }
+
+        let item4 = {
+            parent_id: 'test_screen',
+            item_id: 'item 4'
+        }
+
+        let item5 = {
+            parent_id: 'test_screen',
+            item_id: 'item 5'
+        }
+
+        projectContentModel.append(item1)
+        projectContentModel.append(item2)
+        projectContentModel.append(item3)
+        projectContentModel.append(item4)
+        projectContentModel.append(item5)
+
+
 
     }
 
@@ -74,20 +109,28 @@ C2.Page {
         id: projectViewBrowser
 
         Rectangle {
+            property int projectViewBrowserRowIndex: index
+
             width: dp(256)
             height: parent.height
             color: 'transparent'
             border.width: dp(1.5)
             border.color: appStyle.lightBlue
 
+            Text {
+                anchors.centerIn: parent
+                color: 'gray'
+                text: "parent_id:" + parent_id
+            }
+
             SortFilterProxyModel {
                 id: projectProxyModel
                 sourceModel: projectContentModel
-//                filters: [
-//                    ValueFilter {
-//                        roleName: "parent_id"
-//                        value: parent_id
-//                    }]
+                filters: [
+                    ValueFilter {
+                        roleName: "parent_id"
+                        value: parent_id
+                    }]
             }
 
             ListView {
@@ -104,8 +147,11 @@ C2.Page {
                 header: spacingDelegate
                 delegate: projectParentDelegate
                 footer: spacingDelegate
+                currentIndex: -1
 
                 ScrollBar.vertical: ScrollBar {}
+
+                onCurrentIndexChanged: appFunctions.projectDepth.setNewDepth(model.get(currentIndex), projectViewBrowserRowIndex + 1)
             }
 
             Component {
